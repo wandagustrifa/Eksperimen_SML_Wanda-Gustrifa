@@ -1,0 +1,39 @@
+name: Automate Data Preprocessing
+
+on:
+  push:
+    branches:
+      - main 
+    paths:
+      - 'namadataset_raw/diabetes_data.csv' 
+      - 'preprocessing/automate_Wanda-Gustrifa.py' 
+  workflow_dispatch: 
+
+jobs:
+  preprocess_data:
+    runs-on: ubuntu-latest 
+    steps:
+    - name: Checkout repository 
+      uses: actions/checkout@v3 
+
+    - name: Setup Python environment 
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9' 
+
+    - name: Install dependencies 
+      run: | 
+        pip install pandas scikit-learn numpy
+
+    - name: Run data preprocessing script 
+      run: |
+        # Pastikan direktori output ada sebelum script dijalankan
+        mkdir -p preprocessing/namadataset_preprocessing
+        python preprocessing/automate_Wanda-Gustrifa.py
+
+    - name: Upload preprocessed data as artifact 
+      uses: actions/upload-artifact@v3
+      with:
+        name: preprocessed-diabetes-data 
+        path: preprocessing/namadataset_preprocessing/preprocessed_diabetes_data.csv 
+        retention-days: 10
