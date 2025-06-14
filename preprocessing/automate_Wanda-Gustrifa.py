@@ -93,6 +93,7 @@ def preprocess_diabetes_data(input_filepath, output_filepath):
     return df_preprocessed
 
 if __name__ == "__main__":
+    current_script_dir = os.path.dirname(os.path.abspath(__file__))
     raw_data_path = os.path.join(current_script_dir, '..', 'namadataset_raw', 'diabetes_data.csv')
     preprocessed_data_path = os.path.join(current_script_dir, 'namadataset_preprocessing', 'preprocessed_diabetes_data.csv')
 
