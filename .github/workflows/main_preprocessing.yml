@@ -17,7 +17,7 @@ jobs:
       uses: actions/checkout@v3 
 
     - name: Setup Python environment 
-      uses: actions/setup-python@v3
+      uses: actions/setup-python@v4
       with:
         python-version: '3.12' 
 
@@ -32,7 +32,7 @@ jobs:
         python preprocessing/automate_Wanda-Gustrifa.py
 
     - name: Upload preprocessed data as artifact 
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v3
       with:
         name: preprocessed-diabetes-data 
         path: preprocessing/namadataset_preprocessing/preprocessed_diabetes_data.csv 
