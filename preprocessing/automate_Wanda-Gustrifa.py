@@ -94,7 +94,7 @@ def preprocess_diabetes_data(df_raw, is_training=True, preprocessor_path=None):
 if __name__ == "__main__":
     current_script_dir = os.path.dirname(os.path.abspath(__file__))
     try:
-        df_raw = pd.read_csv("../namadataset_raw/diabetes_data.csv") # Sesuaikan path
+        df_raw = pd.read_csv("../namadataset_raw/diabetes_data.csv") 
         print("Raw data loaded for automation test.")
 
         # Preprocessing untuk pelatihan dan simpan preprocessor
